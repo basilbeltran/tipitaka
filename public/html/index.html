@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="buddha">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/js/main.js"></script>
+    </head>
+    <body ng-controller="mindController as mindThis">
+        {{mindThis.greeting}}
+
+        <ul>
+            <!-- <li ng-repeat="(key, value) in mindThis.counter track by $index">
+                {{key}}
+            </li>    -->
+
+            <li ng-repeat="word in mindThis.arr | orderBy:'count' : true">
+                {{word.word}}: {{word.count}}
+            </li>
+        </ul>
+    </body>
+</html>

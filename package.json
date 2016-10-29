@@ -1,0 +1,18 @@
+{
+  "name": "deux",
+  "version": "1.0.0",
+  "description": "a concordance for tipitaka",
+  "main": "server.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node spec"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html2plaintext": "^1.0.1",
+    "jasmine-node": "^1.14.5",
+    "morgan": "^1.7.0",
+    "request": "^2.76.0",
+    "webhdfs": "^1.1.0"
+  }
+}
