@@ -6,12 +6,14 @@ var request = require('request');
 
 module.exports = {
     test: (req, res) => {
-      console.log("Getting all words");
-        request(`${endpoint}/dn.out/part-00000?op=OPEN`, (err, response, body) => {
-          var words = JSON.parse(body);
-          console.log("err: ", err);
-          console.log(words);
+      console.log("Getting almostFixedJson");
+        request(`${endpoint}/dn1.out/part-00000?op=OPEN`, (err, response, body) => {
+          // fixed json will be the string minus the last comma
+          var almostFixedJson = body.slice(0, body.length-4); // why 4 I dont know
+          var fixedJson = almostFixedJson + "}";
+          var words = JSON.parse(fixedJson);
 
+          var arr = [];
             for(prop in words) {
                 arr.push({
                     word: prop,

@@ -12,8 +12,8 @@ function countWords () {
      //remove html
      chunk = h2p(chunk);
 
-       // Replace all newlines and tab chars with spaces 
-      //  ['\n', '\t', ',', '\\.', '\\?', '!', '\\"', '\\(', '\\)', ';', ':', "\\'"].forEach(function (char) {
+       // Replace all newlines and tab chars with spaces
+      //  ['\n', '\t'].forEach(function (char) {
       //      chunk = chunk.replace(new RegExp(char, 'g'), ' ');
       //  });
 
