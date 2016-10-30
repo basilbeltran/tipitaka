@@ -27,10 +27,13 @@ function reduceWords () {
        });
 
        // Emit results
+       process.stdout.write(`{`);
        Object.keys(counts).forEach(function (word) {
            var count = counts[word];
-           process.stdout.write(word + '\t' + count + '\n');
+           //process.stdout.write(word + '\t' + count + '\n');
+           process.stdout.write(`"${word}": ${count},`);
        });
+      process.stdout.write(`}`);
    }
 }
 

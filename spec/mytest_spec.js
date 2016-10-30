@@ -1,8 +1,9 @@
 var request = require("request");
+// var Tapreporter = require("jasmine-tapreporter");
+// var jasmine = require("jasmine-node");
 var baseUrl = "http://localhost:40000/";
 
 describe("BuddhaNode Server Tests", () => {
-
  describe("GET server route /", () => {
 
     it("returns status 200", (done) => {
@@ -28,3 +29,6 @@ describe("BuddhaNode Server Tests", () => {
 
  });   // describe
 });   // describe
+
+// jasmine.getEnv().addReporter( new Tapreporter() );
+// jasmine.getEnv().execute();

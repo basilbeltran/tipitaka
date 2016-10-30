@@ -8,13 +8,17 @@ var h2p = require('html2plaintext');
 function countWords () {
    var chunk = process.stdin.read(); // Read a chunk
    if (chunk !== null) {
-       // Replace all newlines and tab chars with spaces
-       ['\n', '\t', ',', '\\.', '\\?', '!', '\\"', '\\(', '\\)', ';', ':', "\\'"].forEach(function (char) {
-           chunk = chunk.replace(new RegExp(char, 'g'), ' ');
-       });
 
-       //remove html tags
-       chunk = h2p(chunk);
+     //remove html
+     chunk = h2p(chunk);
+
+       // Replace all newlines and tab chars with spaces 
+      //  ['\n', '\t', ',', '\\.', '\\?', '!', '\\"', '\\(', '\\)', ';', ':', "\\'"].forEach(function (char) {
+      //      chunk = chunk.replace(new RegExp(char, 'g'), ' ');
+      //  });
+
+      // remove non alphabetic
+      chunk = chunk.replace(/[^a-zA-Z]+/g, " ");
 
        // Split it
        var words = chunk.trim().split(' ');

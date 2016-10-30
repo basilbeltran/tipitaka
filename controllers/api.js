@@ -1,16 +1,17 @@
 //var hdfsmy = require('./client.js');
-//var endpoint = 'http://kanyerest.xyz/api';
+var kendpoint = 'http://kanyerest.xyz/api';
 var endpoint = 'http://localhost:50070/webhdfs/v1/user/basilbeltran'
 var request = require('request');
 
 
 module.exports = {
-    counter: (req, res) => {
-        request(`${endpoint}/counter`, (err, response, body) => {
-            //console.log("Body: ", body); // why body not response?
-            var words = JSON.parse(body);
+    test: (req, res) => {
+      console.log("Getting all words");
+        request(`${endpoint}/dn.out/part-00000?op=OPEN`, (err, response, body) => {
+          var words = JSON.parse(body);
+          console.log("err: ", err);
+          console.log(words);
 
-            var arr = [];
             for(prop in words) {
                 arr.push({
                     word: prop,
@@ -19,34 +20,14 @@ module.exports = {
             }
             //console.log("Array: ", arr);
 
-            res.send({
-                error: err,
-                response: response,
-                body: arr,
-            });
+            res.send(arr);
         });
     },
-    album: (req, res) => {
-        request(`${endpoint}/album/${req.query.album}`, (err, response, body) => {
-            res.send({
-                error: err,
-                response: response,
-                body: body,
-            });
-        })
-    },
-    track: function getTrack(req, res) {
-        request(`${endpoint}/track/${req.query.track}`, (err, response, body) =>{
-             res.send({
-                error: err,
-                response: response,
-                body: body,
-            });
-        });
-    },
+
+
     allWords: (req, res) => {
-      request(`${endpoint}/dn.out/part-00000?op=OPEN`, (err, response, body) =>{
-        console.log("Body: ", body);
+      request(`${kendpoint}/counter`, (err, response, body) =>{
+
            res.send(body);
       });
     }

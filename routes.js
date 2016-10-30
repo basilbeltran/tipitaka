@@ -7,6 +7,6 @@ module.exports = (app) => {
         res.send("Buddha says...");
     });
 
-    app.get('/api/buddha/counter', hdfsweb.counter);
+    app.get('/api/buddha/test', hdfsweb.test);
     app.get('/api/buddha/allWords', hdfsweb.allWords);
 }
