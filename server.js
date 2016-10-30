@@ -17,6 +17,8 @@ app.use(express.static('public'));
 // mount master routes
 Routes(app);
 
+
+
 app.listen(PORT, (error) => {
     if(error) {
         console.log("Server error: ", error);

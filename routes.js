@@ -1,5 +1,5 @@
 
-var hdfsweb = require('./controllers/api.js');
+var hdfsweb = require('./controllers/webhdfs.js');
 
 
 module.exports = (app) => {
