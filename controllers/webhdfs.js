@@ -5,7 +5,7 @@ var request = require('request');
 
 
 module.exports = {
-    allWords: (req, res) => {
+    allWordsArray: (req, res) => {
 
         request(`${endpoint}/dn1.out/part-00000?op=OPEN`, (err, response, body) => {
           // fixed json will be the string minus the last comma
@@ -26,8 +26,23 @@ module.exports = {
         });
     },
 
+    allWordsJSON: (req, res) => {
+      var testFile = "/dn1.out/part-00000?op=OPEN"
+      request(`${endpoint}${testFile}`, (err, response, body) =>{
+        console.log(`Endpoint: ${endpoint} \n ${testFile} `);
+           res.send(body);
+      });
+    },
 
-    test: (req, res) => {
+    allWordstext: (req, res) => {
+      var testFile = "/dn1.out/part-00000?op=OPEN"
+      request(`${endpoint}${testFile}`, (err, response, body) =>{
+        console.log(`Endpoint: ${endpoint} \n ${testFile} `);
+           res.send(body);
+      });
+    },
+
+    hdfsweb: (req, res) => {
       var testFile = "/dn1.out/part-00000?op=OPEN"
       request(`${endpoint}${testFile}`, (err, response, body) =>{
         console.log(`Endpoint: ${endpoint} \n ${testFile} `);

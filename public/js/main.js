@@ -10,7 +10,7 @@ function mindControl($http) {
     mindThis.greeting = "Monks...";
     trace("Address the monks");
 
-    $http.get('/api/buddha/allWords').then(function(response) {
+    $http.get('/api/buddha/allWordsArray').then(function(response) {
       console.log(response.data);
       mindThis.arr = response.data;
     });
