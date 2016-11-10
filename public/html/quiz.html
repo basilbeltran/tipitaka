@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html ng-app="quiz">
+    <head>
+        <title>Heroes of Language</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/js/module.quiz.js"></script>
+        <script src="/js/controller.quiz.js"></script>
+        <script src="/js/factory.quiz.js"></script>
+
+    </head>
+    <body ng-controller="quizController as quiz">
+            <h1>{{quiz.greeting}}</h1>
+
+
+<div class="row">
+        <ul>
+            <li ng-repeat="wordObject in quiz.wordObjects">
+              <form ng-submit="quiz.submitAnswer()">
+                      <button ng-click="quiz.checkAnswer()"
+                      class="btn btn-primary"
+                      id="checkAnswer">checkAnswer</button>
+
+                  <input ng-model="wordObject.answer" placeholder="your answer">
+                  <input type="submit">
+                {{wordObject.word}} {{wordObject.tword}}
+              </form>
+            </li>
+        </ul>
+</div>
+
+
+</body>
+</html>
